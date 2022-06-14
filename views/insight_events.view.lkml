@@ -2,6 +2,10 @@ view: insight_events {
   sql_table_name: "@{SNOWFLAKE_PROJECT_NAME}"."INSIGHT_EVENTS"
     ;;
 
+  filter: incident_date_filter {
+    type: date_time
+  }
+
   dimension: account_id {
     type: string
     sql: ${TABLE}."ACCOUNT_ID" ;;
@@ -119,6 +123,7 @@ view: insight_events {
   }
 
   dimension: mc_event_id {
+    alias: [event_id]
     type: string
     primary_key: yes
     sql: ${TABLE}."MC_EVENT_ID" ;;
@@ -173,6 +178,7 @@ view: insight_events {
   }
 
   dimension: type {
+    alias: [event_type]
     type: string
     sql: ${TABLE}."TYPE" ;;
   }
@@ -222,7 +228,7 @@ view: insight_events {
 
   measure: count {
     type: count
-    drill_fields: [detail*]
+    drill_fields: [details*]
   }
   measure: number_of_unique_incident_types {
     type: count_distinct
@@ -232,7 +238,7 @@ view: insight_events {
   measure: incident_count {
     type: count_distinct
     sql: ${mc_incident_id} ;;
-    drill_fields: [detail*]
+    drill_fields: [details*]
   }
 
   measure: average_hours_to_resolution {
@@ -293,8 +299,103 @@ view: insight_events {
     value_format_name: percent_2
   }
 
-set: detail {
-  fields: [dataset_name, project_name, table_name]
-}
+  dimension: days_since_event {
+    type: duration_day
+    sql_start: ${created_date} ;;
+    sql_end: CURRENT_DATE ;;
+  }
+
+  measure: days_since_incident {
+    type: min
+    sql: ${days_since_event} ;;
+  }
+
+  dimension: event_data {
+    type: string
+    sql: ${TABLE}."EVENT_DATA" ;;
+  }
+
+  dimension: under_score {
+    type: string
+    sql: json_extract_path_text(${TABLE}."EVENT_DATA", 'under_score') ;;
+  }
+
+  dimension: anomaly_score {
+    type: string
+    sql: json_extract_path_text(${TABLE}."EVENT_DATA", 'anomaly_score') ;;
+  }
+
+  dimension: dashboard_incident_link {
+    type: string
+    sql: 'https://getmontecarlo.com/incidents/' || ${mc_incident_id};;
+    link: {
+      label: "Check in Monte Carlo"
+      icon_url: "https://avatars.githubusercontent.com/u/51944801?s=200&v=4"
+      url: "{{value}}"
+    }
+  }
+
+  measure: freshness_anomaly_count {
+    type: count_distinct
+    sql: ${mc_event_id} ;;
+    filters: [type: "fresh_anom"]
+    drill_fields: [details*]
+  }
+
+  measure: freshness_incident_count {
+    type: count_distinct
+    sql: ${mc_incident_id} ;;
+    filters: [is_freshness_anomaly: "Yes"]
+    drill_fields: [details*]
+  }
+
+  measure: volume_incident_count {
+    type: count_distinct
+    sql: ${mc_incident_id} ;;
+    filters: [is_volume_anomaly: "Yes"]
+    drill_fields: [details*]
+  }
+
+  dimension: is_freshness_anomaly {
+    type: yesno
+    sql: ${type} = 'fresh_anom' or json_extract_path_text(${event_data}, 'rule.rule_type') = 'freshness';;
+  }
+
+  dimension: is_volume_anomaly {
+    type: yesno
+    sql: ${type} = 'size_anom' or json_extract_path_text(${event_data}, 'rule.rule_type') = 'size';;
+  }
+
+  measure: schema_change_count {
+    type: count_distinct
+    sql: ${mc_event_id} ;;
+    filters: [type: "schema_change"]
+    drill_fields: [details*]
+  }
+
+  measure: distribution_anomaly_count {
+    type: count_distinct
+    sql: ${mc_event_id} ;;
+    filters: [type: "dist_anom"]
+    drill_fields: [details*]
+  }
+
+  measure: custom_rule_anomaly_count {
+    type: count_distinct
+    sql: ${mc_event_id} ;;
+    filters: [type: "custom_rule_anom"]
+    drill_fields: [details*]
+  }
+
+  measure: unchanged_size_anomaly_count {
+    type: count_distinct
+    sql: ${mc_event_id} ;;
+    filters: [type: "unchanged_size_anom"]
+    drill_fields: [details*]
+  }
+
+  set: details {
+    fields: [dataset_name, project_name, table_name]
+  }
 
 }
