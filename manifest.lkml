@@ -1,4 +1,4 @@
-project_name: "monte_carlo_insights_block"
+project_name: "data_observability_insights_analytics_block"
 
 constant: SNOWFLAKE_CONNECTION_NAME {
   value: "snowflake-prod"
