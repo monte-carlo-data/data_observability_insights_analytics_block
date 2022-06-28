@@ -1,5 +1,5 @@
 view: insight_incident_history {
-  sql_table_name: "@{SNOWFLAKE_PROJECT_NAME}"."INSIGHT_INCIDENT_HISTORY"
+  sql_table_name: "@{DATASET_NAME}"."INSIGHT_INCIDENT_HISTORY"
     ;;
 
   dimension: account_id {

@@ -1,5 +1,5 @@
 view: insight_custom_rules {
-  sql_table_name: "@{SNOWFLAKE_PROJECT_NAME}"."INSIGHT_CUSTOM_RULES"
+  sql_table_name: "@{DATASET_NAME}"."INSIGHT_CUSTOM_RULES"
     ;;
 
   dimension: account_id {

@@ -1,5 +1,5 @@
 view: insight_key_assets {
-  sql_table_name: "@{SNOWFLAKE_PROJECT_NAME}"."INSIGHT_KEY_ASSETS"
+  sql_table_name: "@{DATASET_NAME}"."INSIGHT_KEY_ASSETS"
     ;;
 
   dimension: account_id {

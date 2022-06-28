@@ -1,5 +1,5 @@
 view: insight_monitor_recom_fh_tables {
-  sql_table_name: "@{SNOWFLAKE_PROJECT_NAME}"."INSIGHT_MONITOR_RECOM_FH_TABLES"
+  sql_table_name: "@{DATASET_NAME}"."INSIGHT_MONITOR_RECOM_FH_TABLES"
     ;;
 
   dimension: account_id {

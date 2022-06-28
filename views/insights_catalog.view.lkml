@@ -1,5 +1,5 @@
 view: insights_catalog {
-  sql_table_name: "@{SNOWFLAKE_PROJECT_NAME}"."INSIGHTS_CATALOG"
+  sql_table_name: "@{DATASET_NAME}"."INSIGHTS_CATALOG"
     ;;
 
   dimension: description {

@@ -1,5 +1,5 @@
 view: insight_query_performance {
-  sql_table_name: "@{SNOWFLAKE_PROJECT_NAME}"."INSIGHT_QUERY_PERFORMANCE"
+  sql_table_name: "@{DATASET_NAME}"."INSIGHT_QUERY_PERFORMANCE"
     ;;
 
   dimension: account_id {

@@ -1,5 +1,5 @@
 view: insight_cleanup_suggestions {
-  sql_table_name: "@{SNOWFLAKE_PROJECT_NAME}"."INSIGHT_CLEANUP_SUGGESTIONS"
+  sql_table_name: "@{DATASET_NAME}"."INSIGHT_CLEANUP_SUGGESTIONS"
     ;;
 
   dimension: account_id {

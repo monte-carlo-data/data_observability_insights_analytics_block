@@ -1,5 +1,5 @@
 view: insight_query_runtime_trends {
-  sql_table_name: "@{SNOWFLAKE_PROJECT_NAME}"."INSIGHT_QUERY_RUNTIME_TRENDS"
+  sql_table_name: "@{DATASET_NAME}"."INSIGHT_QUERY_RUNTIME_TRENDS"
     ;;
 
   dimension: account_id {

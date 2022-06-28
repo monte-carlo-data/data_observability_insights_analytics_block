@@ -1,5 +1,5 @@
 view: insight_table_read_write_stats {
-  sql_table_name: "@{SNOWFLAKE_PROJECT_NAME}"."INSIGHT_TABLE_READ_WRITE_STATS"
+  sql_table_name: "@{DATASET_NAME}"."INSIGHT_TABLE_READ_WRITE_STATS"
     ;;
 
   dimension: account_id {

@@ -1,5 +1,5 @@
 view: insight_monitors {
-  sql_table_name: "@{SNOWFLAKE_PROJECT_NAME}"."INSIGHT_MONITORS" ;;
+  sql_table_name: "@{DATASET_NAME}"."INSIGHT_MONITORS" ;;
   drill_fields: [project_name, dataset_name, table_name, table_type, total_monitors]
 
   dimension: row_number {
