@@ -1,5 +1,5 @@
 view: insight_rca_query_change {
-  sql_table_name: "@{DATASET_NAME}"."INSIGHT_RCA_QUERY_CHANGE"
+  sql_table_name: "@{DATASET_NAME}"."@{TABLE_PREFIX}RCA_QUERY_CHANGE"
     ;;
 
   dimension: account_id {

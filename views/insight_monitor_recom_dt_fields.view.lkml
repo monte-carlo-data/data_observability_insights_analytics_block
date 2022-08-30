@@ -1,5 +1,5 @@
 view: insight_monitor_recom_dt_fields {
-  sql_table_name: "@{DATASET_NAME}"."INSIGHT_MONITOR_RECOM_DT_FIELDS"
+  sql_table_name: "@{DATASET_NAME}"."@{TABLE_PREFIX}MONITOR_RECOM_DT_FIELDS"
     ;;
 
   dimension: account_id {

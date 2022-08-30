@@ -1,5 +1,5 @@
 view: insight_monitor_issues_and_solutions {
-  sql_table_name: "@{DATASET_NAME}"."INSIGHT_MONITOR_ISSUES_AND_SOLUTIONS"
+  sql_table_name: "@{DATASET_NAME}"."@{TABLE_PREFIX}MONITOR_ISSUES_AND_SOLUTIONS"
     ;;
 
   dimension: account_id {
