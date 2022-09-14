@@ -11,6 +11,6 @@ constant: DATASET_NAME {
 }
 
 constant: TABLE_PREFIX {
-  value: "INSIGHT_"
+  value: ""
   export: override_optional
 }
