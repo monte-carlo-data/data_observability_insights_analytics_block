@@ -14,7 +14,7 @@
       "DATASET_NAME": {
         "label": "Monte Carlo Dataset Name"
       },
-      "DATASET_NAME": {
+      "TABLE_PREFIX": {
         "label": "Monte Carlo Table Prefix (leave blank)"
       }
     },
