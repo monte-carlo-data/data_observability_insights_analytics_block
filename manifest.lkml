@@ -9,3 +9,8 @@ constant: DATASET_NAME {
   value: "PROD_INSIGHTS"
   export: override_required
 }
+
+constant: TABLE_PREFIX {
+  value: "INSIGHT_"
+  export: override_optional
+}

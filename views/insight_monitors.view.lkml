@@ -1,5 +1,5 @@
 view: insight_monitors {
-  sql_table_name: "@{DATASET_NAME}"."INSIGHT_MONITORS" ;;
+  sql_table_name: "@{DATASET_NAME}"."@{TABLE_PREFIX}MONITORS" ;;
   drill_fields: [project_name, dataset_name, table_name, table_type, total_monitors]
 
   dimension: row_number {
@@ -126,12 +126,23 @@ view: insight_monitors {
 
   dimension: size_monitor {
     type: yesno
-    sql: ${TABLE}."SIZE_MONITOR" ;;
+    # sql: ${TABLE}."SIZE_MONITOR" ;;
+    sql: ${volume_change_monitor} or ${unchanged_size_monitor} ;;
   }
 
   dimension: table_name {
     type: string
     sql: ${TABLE}."TABLE_NAME" ;;
+  }
+
+  dimension: volume_change_monitor {
+    type: yesno
+    sql: ${TABLE}.volume_change_monitor ;;
+  }
+
+  dimension: unchanged_size_monitor {
+    type: yesno
+    sql: ${TABLE}.unchanged_size_monitor ;;
   }
 
   dimension: is_wildcard_table {

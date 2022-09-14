@@ -1,5 +1,5 @@
 view: insight_events {
-  sql_table_name: "@{DATASET_NAME}"."INSIGHT_EVENTS"
+  sql_table_name: "@{DATASET_NAME}"."@{TABLE_PREFIX}EVENTS"
     ;;
 
   filter: incident_date_filter {

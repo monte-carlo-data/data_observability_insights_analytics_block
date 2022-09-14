@@ -5,7 +5,7 @@
       "image_uri": "https://files.readme.io/39894f8-small-Monte_Carlo_Logo_Primary.png",
       "tagline": "This Block provides access to the various metadata Monte Carlo collects to support a range of analytical and tracking use cases. Many of our customers today access this data to define and track SLI performance, monitor data asset usage, determine the most important (or least important) data assets, and more."
     },
-  
+
     "constants": {
       "CONNECTION_NAME": {
         "label": "Looker Connection Name",
@@ -13,6 +13,9 @@
       },
       "DATASET_NAME": {
         "label": "Monte Carlo Dataset Name"
+      },
+      "TABLE_PREFIX": {
+        "label": "Monte Carlo Table Prefix (leave blank)"
       }
     },
     "models": [

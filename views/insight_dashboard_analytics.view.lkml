@@ -1,5 +1,5 @@
 view: insight_dashboard_analytics {
-  sql_table_name: "@{DATASET_NAME}"."INSIGHT_DASHBOARD_ANALYTICS"
+  sql_table_name: "@{DATASET_NAME}"."@{TABLE_PREFIX}DASHBOARD_ANALYTICS"
     ;;
 
   dimension: account_id {
