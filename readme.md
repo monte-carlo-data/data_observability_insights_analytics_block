@@ -13,7 +13,7 @@ This Looker Block provides a set of Explores and Dashboards for Monte Carlo Insi
 ![image](https://user-images.githubusercontent.com/16830555/182867195-987b108f-2907-46a3-b8eb-fb06986730b1.png)
 3. Use the following:  
   Git Repository URL: `https://github.com/monte-carlo-data/data_observability_insights_analytics_block.git` 
-  Git Commit SHA: `8de0a112bb0b565d4bb698d04e42468026c315f9`
+  Git Commit SHA: `67910cb2769c584d5bf3f58ff47798869bb71445`
 4. Click Install.  
 5. Set the proper Connection Name to the Looker connection and Dataset Name to the Database that includes the Monte Carlo Data Share or wherever the data lives in your environment.  
 ![image](https://user-images.githubusercontent.com/16830555/182867530-e086de0f-0130-4809-aa82-8baebdf5aaaf.png)
